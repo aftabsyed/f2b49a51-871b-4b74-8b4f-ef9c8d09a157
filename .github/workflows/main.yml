@@ -24,3 +24,15 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2 
+      
+      - name: Setup MSbuild
+        uses: microsoft/setup-msbuild@v1.0.3
+        
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1.0.5
+        
+      - name: Restore Nuget packages
+        run: nuget restore LIS.sln
+
+      - name: Build the solution
+        run: msbuild LIS.sln  
