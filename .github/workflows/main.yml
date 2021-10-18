@@ -36,3 +36,6 @@ jobs:
 
       - name: Build the solution
         run: msbuild LIS.sln  
+        
+      - name: Run Tests
+        run: dotnet test
